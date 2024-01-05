@@ -31,9 +31,62 @@ The most important part of this project is the planning phase. Work with your te
 
 You need to decide how your user will interact with your code. Every option you present will need to be followed with an action. If you choose to create multiple storylines your code base will need to reflect all the possible actions. Each storyline can be a unique adventure in which some are successful and others are not.
 
+### Ideas
+    # max-payne style game / player plays as home invader (break in)
+    # player comes home to a break-in ()
+    # must decide which part of the house to investigate
+    # runs into intruders
+    # clues throughout house to show where they are
+    # stash of weapons to find
+    # stealth/health bar
+    # winning condition(placeholder, )
+
 ### 🎮 Game Play
 
 The game will take place entirely in the terminal. All interactions between the user and the game are text-based. The user will see a story printed in the terminal and then be presented with options that will determine the story's next phase. The user will type their selection into the terminal.
+
+#### Text-based Game Challenge
+puts '
+▒█▀▀█ █▀▀█ █▀▀ ░░ ▀▀█▀▀ █▀▀ █▀▀█ █▀▄▀█ ░▀░ █▀▀▄ █▀▀█ █░░ 
+▒█▄▄█ █▄▄█ █░░ ▀▀ ░▒█░░ █▀▀ █▄▄▀ █░▀░█ ▀█▀ █░░█ █▄▄█ █░░ 
+▒█░░░ ▀░░▀ ▀▀▀ ░░ ░▒█░░ ▀▀▀ ▀░▀▀ ▀░░░▀ ▀▀▀ ▀░░▀ ▀░░▀ ▀▀▀
+'
+
+# method to display ASCII art
+def display_ascii
+  File.readlines('pac.txt') do |line|
+    line
+  end
+end
+
+# method call to display image
+puts display_ascii
+
+# display greeting
+puts 'Welcome to Pac-Terminal: Pac-Man in the Terminal'
+puts 'Enter your name'
+player_name = gets.chomp.capitalize
+
+# variable to show starting point
+lives = 3
+
+puts "Current Status for #{player_name}"
+puts "Lives: #{lives}"
+
+# options for user to play
+while lives > 0
+  puts "Which direction would you like to move"
+  puts "Type left, right, up, or down"
+
+  movement = gets.chomp.downcase
+
+  if movement == "up"
+    puts "Blinky attacked you! Lose a life"
+    lives -= 1
+    puts "Lives: #{lives}"
+  end
+end
+
 
 ### ➕ Tips and Tricks
 
